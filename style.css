@@ -140,7 +140,7 @@ nav button {
 }
 
 .navItems {
-	gap: 4rem;
+	gap: 3rem;
 	display: flex;
 	align-items: center;
 }
@@ -148,13 +148,11 @@ nav button {
 .navItems li a {
 	color: var(--color-gray-200);
 	font-weight: 800;
-	font-size:1.5rem;
-	transition: var(--transition);
+	font-size:1.2rem;
 }
 
-.navItems li:hover a {
+.navItems>li:hover>a {
 	color: var(--color-white);
-	transition: var(--transition);
 }
 
 .navProfile {
@@ -168,7 +166,7 @@ nav button {
 	display: flex;
 	position: absolute;
 	flex-direction: column;
-	visibility: hidden;
+	visibility: none;
 	transition: var(--transition);
 	box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.4);
 }
@@ -177,14 +175,17 @@ nav button {
 	padding: 1rem;
 	display: block;
 	width: 100%;
-	background: var(--color-gradient);
 	border-radius: var(--card-border-radius-2);
+	background: var(--color-gray-900);
 	margin-top: 0.5rem;
+}
+
+.navProfile ul li:hover a {
+	color:var(--color-white);
 }
 
 .navProfile ul li:first-child a{
 	margin-top: 1rem;
-	background: var(--color-gradient);
 }
 
 /* show navbar ul when hover over that*/
@@ -321,8 +322,8 @@ footer {
 
 .footerContainer {
 	display: grid;
-	justify-items: center;
 	grid-template-columns: repeat(4, 1fr);
+	gap:2rem
 }
 
 footer li {
@@ -351,4 +352,162 @@ footer ul a:hover {
 	padding: 1.5rem 0;
 	margin-top: 4rem;
 	border-top: 2px solid var(--color-bg);
+}
+
+
+/* for the medium size devices */
+@media screen and (max-width: 1024px) {
+	/* for the general styles */
+	.container {
+		width: var(--container-width-md);
+	}
+	h2 {
+		font-size: 1.6rem;
+	}
+	h3 {
+		font-size: 1.2rem;
+	}
+	h5 {
+		font-size: 0.8rem;
+	}
+
+	/* for nav bar style */
+	nav button {
+		cursor: pointer;
+		background: transparent;
+		color: var(--color-white);
+		font-size: 1.5rem;
+		display: inline-block;
+	}
+
+	nav button#closeNavBtn {
+		display: none;
+	}
+	.navContainer {
+		position: relative;
+	}
+	.navItems {
+		align-items: flex-start;
+		justify-content: center;
+		right: 0;
+		width: 12rem;
+		top: 100%;
+		display: none;
+		position: absolute;
+		flex-direction: column;
+		gap: 0;
+	}
+	/* Nav bar dropodwn animation */
+	@keyframes animateDropdown {
+		0% {
+			transform: rotateX(90deg);
+		}
+		100% {
+			transform: rotateX(0deg);
+			opacity: 1;
+		}
+	}
+
+	.navItems li {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 4.5rem;
+		box-shadow: -2rem 3rem 7rem rgba(0, 0, 0, 0.7);
+		background: var(--color-gray-900);
+		border-top: 1px solid var(--color-bg);
+		opacity: 0;
+		animation: animateDropdown 400ms 0s ease forwards;
+		transform-origin: top;
+	}
+
+	.navItems li:nth-child(2) {
+		animation-delay: 150ms;
+	}
+	.navItems li:nth-child(3) {
+		animation-delay: 250ms;
+	}
+	.navItems li:nth-child(4) {
+		animation-delay: 350ms;
+	}
+	.navItems li:nth-child(5) {
+		animation-delay: 450ms;
+	}
+	.navItems li:nth-child(6) {
+		animation-delay: 550ms;
+	}
+
+	.navItems a {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		
+		background: var(--color-gray-900);
+		padding: 0 2rem;
+	}
+
+	.navProfile {
+		background: var(--color-gray-900);
+	}
+
+	.navProfile ul {
+		top: 100%;
+		width: 100%;
+	}
+	.navProfile ul li a{
+		color: var(--color-gray-200);
+	}
+	.navProfile ul li:hover a{
+		color: var(--color-white);
+	}
+
+	.navProfile .avatar {
+		margin-left: 2rem;
+	}
+
+	/* for the feature section */
+	.featuredContainer {
+		gap: 3rem;
+	}
+
+	/* for the post section */
+	.postsContainer {
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+	}
+
+	/* for the footer section */
+	.footerContainer {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+/* for small size device */
+@media screen and (max-width: 600px) {
+	section {
+		margin-top: 2rem;
+	}
+	h1 {
+		font-size: 2rem;
+	}
+	.featured {
+		margin-top: 6rem;
+	}
+	.featuredContainer {
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+	.postsContainer {
+		grid-template-columns: 1fr;
+	}
+
+	.categoryButtonsContainer {
+		grid-template-columns: 1fr 1fr;
+	}
+	.footerContainer {
+		grid-template-columns: 1fr;
+		text-align: center;
+		gap: 2rem;
+	}
 }
