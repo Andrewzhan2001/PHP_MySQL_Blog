@@ -405,7 +405,42 @@ ________________________________________________________________
 	transition: var(--transition);
 }
 
+/* for the single post section
+________________________________________________________________
+*/
+.singlePost {
+	margin: 6rem 0 2rem;
+}
+.singlePostContainer {
+	width: var(--form-width);
+	padding: 1rem 2rem 3rem;
+	background: var(--color-gray-900);
+}
+.singlePostContainer p {
+	line-height: 1.7;
+	margin-top: 1rem;
+}
+.singlePostThumbnail {
+	margin: 1.5rem 0 1rem;
+}
+.singlePostThumbnail img {
+	border-radius: var(--card-border-radius-4);
+}
 
+.categoryTitle {
+	display: grid;
+	height: 11rem;
+	margin-top: 4.5rem;
+	background: var(--color-gray-900);
+	place-items: center;
+}
+
+.emptyPage {
+	height: 70vh;
+	display: grid;
+	place-content: center;
+	text-align: center;
+}
 
 /* for the medium size devices 
 ________________________________________________________________
@@ -571,5 +606,10 @@ ________________________________________________________________
 	}
 	.searchBarContainer {
 		width: var(--container-width-md);
+	}
+	/* for the section of single post */
+	.singlePostContainer {
+		background-color: transparent;
+		padding: 0;
 	}
 }

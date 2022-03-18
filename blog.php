@@ -100,12 +100,12 @@
   </section>
   <section class="categoryButtons">
     <div class="container categoryButtonsContainer">
-      <a href="" class="categoryButton">Art</a>
-      <a href="" class="categoryButton">Wild Life</a>
-      <a href="" class="categoryButton">Science & Technology</a>
-      <a href="" class="categoryButton">Food</a>
-      <a href="" class="categoryButton">Music</a>
-      <a href="" class="categoryButton">Travel</a>
+      <a href="categoryPosts.php" class="categoryButton">Art</a>
+      <a href="categoryPosts.php" class="categoryButton">Wild Life</a>
+      <a href="categoryPosts.php" class="categoryButton">Science & Technology</a>
+      <a href="categoryPosts.php" class="categoryButton">Food</a>
+      <a href="categoryPosts.php" class="categoryButton">Music</a>
+      <a href="categoryPosts.php" class="categoryButton">Travel</a>
     </div>
   </section>
   <footer>
@@ -120,12 +120,12 @@
       <article>
         <h4>Categories</h4>
         <ul>
-          <li><a href="">Art</a></li>
-          <li><a href="">Wild Life</a></li>
-          <li><a href="">Travel</a></li>
-          <li><a href="">Music</a></li>
-          <li><a href="">Science & Technology</a></li>
-          <li><a href="">Food</a></li>
+          <li><a href="categoryPosts.php">Art</a></li>
+          <li><a href="categoryPosts.php">Wild Life</a></li>
+          <li><a href="categoryPosts.php">Travel</a></li>
+          <li><a href="categoryPosts.php">Music</a></li>
+          <li><a href="categoryPosts.php">Science & Technology</a></li>
+          <li><a href="categoryPosts.php">Food</a></li>
         </ul>
       </article>
       <article>
