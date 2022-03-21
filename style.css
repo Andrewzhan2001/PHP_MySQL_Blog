@@ -442,6 +442,71 @@ ________________________________________________________________
 	text-align: center;
 }
 
+/* for the General form
+________________________________________________________________
+*/
+.formSection {
+	height: 100vh;
+	margin: 5rem 0;
+	display: grid;
+	place-items: center;
+}
+.formSectionContainer {
+	width: var(--form-width);
+}
+
+.alertMessage {
+	padding: 0.8rem 1.4rem;
+	margin-bottom: 1rem;
+	border-radius: var(--card-border-radius-2);
+}
+
+.alertMessage.error {
+	color: var(--color-red);
+	background: var(--color-red-light);
+}
+
+.alertMessage.success {
+	color: var(--color-green);
+	background: var(--color-green-light);
+}
+
+form {
+	gap: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.formControl {
+	gap: 0.6rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.form__control.inline {
+	flex-direction: row;
+	align-items: center;
+}
+
+.formSection small {
+	margin-top: 1rem;
+	display: block;
+}
+
+.formSection small a {
+	color: var(--color-primary);
+	margin-left: 1rem;
+	font-size:1rem;
+}
+
+input, textarea, select {
+	padding: 0.8rem 1.4rem;
+	color: var(--color-white);
+	background-color: var(--color-gray-900);
+	border-radius: var(--card-border-radius-2);
+	resize: none;
+}
+
 /* for the medium size devices 
 ________________________________________________________________
 */
@@ -611,5 +676,11 @@ ________________________________________________________________
 	.singlePostContainer {
 		background-color: transparent;
 		padding: 0;
+	}
+	.formSectionContainer {
+		padding: 0;
+	}
+	.formSection form a {
+		padding-bottom: 2rem;
 	}
 }
