@@ -404,6 +404,17 @@ ________________________________________________________________
 	cursor: pointer;
 	transition: var(--transition);
 }
+.btn.sm {
+	font-size: 0.8rem;
+	padding: 0.3rem;
+}
+.btn.danger {
+	background-color: red;
+}
+.btn:hover {
+	color: var(--color-bg);
+	background: var(--color-white);
+}
 
 /* for the single post section
 ________________________________________________________________
@@ -506,6 +517,79 @@ input, textarea, select {
 	border-radius: var(--card-border-radius-2);
 	resize: none;
 }
+
+/* for the dashboard
+________________________________________________________________
+*/
+.dashboard {
+	margin-top: 6rem;
+}
+
+.sidebarToggle {
+	display: none;
+}
+
+.dashboardContainer {
+	padding: 2rem;
+	margin-bottom: 5rem;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 20rem auto;
+	background: var(--color-gray-900);
+}
+
+.dashboard aside a {
+	gap: 1rem;
+	padding: 1.6rem;
+	background: var(--color-primary);
+	display: flex;
+	align-items: center;
+}
+
+.dashboard aside ul li:not(:last-child) a {
+	border-bottom: 1px solid var(--color-gray-700);
+}
+
+.dashboard aside a:hover {
+	background: var(--color-gray-700);
+}
+
+.dashboard aside a.active {
+	background-color: var(--color-gray-700);
+}
+
+.dashboard main {
+	margin-left: 1.5rem;
+}
+
+.dashboard main h2 {
+	line-height: 1;
+	margin: 0 0 2rem 0;
+}
+
+.dashboard main table {
+	width: 100%;
+	text-align: left;
+}
+
+.dashboard main table th {
+	padding: 0.8rem;
+	color: var(--color-white);
+	background: var(--color-gray-700);
+}
+
+.dashboard main table td {
+	padding: 0.8rem;
+	border-bottom: 1px solid var(--color-gray-200);
+}
+
+.dashboard main table tr:hover {
+	color: var(--color-white);
+	background-color: var(--color-bg);
+	transition: var(--transition);
+	cursor: default;
+}
+
 
 /* for the medium size devices 
 ________________________________________________________________
@@ -638,6 +722,19 @@ ________________________________________________________________
 	.searchBarContainer {
 		width: 60%;
 	}
+	
+	/* for the dashboard */
+	.dashboardContainer {
+		grid-template-columns: 4.5rem auto;
+	}
+	.dashboard aside {
+		/* background: var(--color-primary); */
+	}
+	.dashboard aside h5 {
+		display: none;
+	}
+	
+
 }
 
 /* for small size device 
@@ -672,6 +769,7 @@ ________________________________________________________________
 	.searchBarContainer {
 		width: var(--container-width-md);
 	}
+
 	/* for the section of single post */
 	.singlePostContainer {
 		background-color: transparent;
@@ -682,5 +780,52 @@ ________________________________________________________________
 	}
 	.formSection form a {
 		padding-bottom: 2rem;
+	}
+
+	/* for the dashboard page */
+	.dashboard {
+		margin-top: 5rem;
+	}
+	.dashboardContainer {
+		gap: 0;
+		grid-template-columns: 1fr;
+	}
+	.dashboard main {
+		margin: 0;
+	}
+	.dashboard main h2 {
+		margin-top: 1rem;
+	}
+	.dashboard aside {
+		position: fixed;
+		box-shadow: 2rem 0 4rem rgba(0, 0, 0, 0.4);
+		left: -100%;
+		z-index: 1;
+		transition: var(--transition);
+		background: var(--color-primary);
+	}
+
+	.dashboard .sidebarToggle {
+		font-size: 1.3rem;
+		bottom: 4rem;
+		right: 0;
+		width: 2.5rem;
+		height: 2.5rem;
+		display: inline-block;
+		color: var(--color-white);
+		background: var(--color-primary-variant);
+		position: fixed;
+		z-index: 1;
+		border-radius: 50% 0 0 50%;
+		box-shadow: -1rem 0 2rem rgba(0, 0, 0, 0.4);
+		cursor: pointer;
+	}
+
+	.dashboard aside a h5 {
+		display: inline-block;
+	}
+
+	#hideSidebarBtn {
+		display: none;
 	}
 }
