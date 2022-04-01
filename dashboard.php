@@ -18,7 +18,7 @@
   <!-- for the navigation bar -->
   <nav>
     <div class="container navContainer">
-      <a href="index.php" class="navLogo">Andrew</a>
+      <a href="index.php" class="navLogo">ANDREW</a>
       <ul class="navItems">
         <li><a href="blog.php">Blog</a></li>
         <li><a href="about.php">About</a></li>
@@ -84,7 +84,7 @@
         </ul>
       </aside>
       <main>
-        <h2>Manage Users</h2>
+        <h2>Manage Posts</h2>
         <table>
           <thead>
             <tr>
