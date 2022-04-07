@@ -15,7 +15,7 @@
             </a>
           </li>
           <li>
-            <a href="index.php">
+            <a href="index.php" class="active">
               <i class="uil uil-postcard" ></i>
               <h5>Manage Posts</h5>
             </a>
@@ -27,7 +27,7 @@
             </a>
           </li>
           <li>
-            <a href="manageUsers.php" class="active">
+            <a href="manageUsers.php" >
               <i class="uil uil-users-alt" ></i>
               <h5>Manage Users</h5>
             </a>
@@ -47,38 +47,28 @@
         </ul>
       </aside>
       <main>
-        <h2>Manage Users</h2>
+        <h2>Manage Posts</h2>
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Username</th>
+              <th>Title</th>
+              <th>Category</th>
               <th>Edit</th>
               <th>Delete</th>
-              <th>Admin</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Username 1</td>
-              <td>achiever</td>
-              <td><a href="editUser.php" class="btn sm">Edit</a></td>
+              <td>Title 1</td>
+              <td>Wild Life</td>
+              <td><a href="editPost.php" class="btn sm">Edit</a></td>
               <td><a href="deleteCategory.php" class="btn sm danger">Delete</a></td>
-              <td>Yes</td>
             </tr>
             <tr>
-              <td>Username 2</td>
-              <td>achiever2</td>
-              <td><a href="editUser.php" class="btn sm">Edit</a></td>
+              <td>Title 1</td>
+              <td>Wild Life</td>
+              <td><a href="editPost.php" class="btn sm">Edit</a></td>
               <td><a href="deleteCategory.php" class="btn sm danger">Delete</a></td>
-              <td>Yes</td>
-            </tr>
-            <tr>
-              <td>Username 3</td>
-              <td>achiever3</td>
-              <td><a href="editUser.php" class="btn sm">Edit</a></td>
-              <td><a href="deleteCategory.php" class="btn sm danger">Delete</a></td>
-              <td>No</td>
             </tr>
           </tbody>
         </table>

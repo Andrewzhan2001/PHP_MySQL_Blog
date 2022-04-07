@@ -10,7 +10,7 @@ require 'config/database.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PHP and MYSQL Blog Website</title>
 <!--  style sheet -->
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="<?= rootURL?>css/style.css">
 <!-- iconsount cdn(content delivery network) -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 <!-- google fonts -->
@@ -22,20 +22,20 @@ require 'config/database.php';
   <!-- for the navigation bar -->
   <nav>
     <div class="container navContainer">
-      <a href="index.php" class="navLogo">ANDREW</a>
+      <a href="<?= rootURL?>" class="navLogo">ANDREW</a>
       <ul class="navItems">
-        <li><a href="blog.php">Blog</a></li>
-        <li><a href="about.php">About</a></li>
-        <li><a href="services.php">Services</a></li>
-        <li><a href="contact.php">Contact</a></li>
-        <!-- <li><a href="signin.php">Signin</a></li> -->
+        <li><a href="<?= rootURL?>blog.php">Blog</a></li>
+        <li><a href="<?= rootURL?>about.php">About</a></li>
+        <li><a href="<?= rootURL?>services.php">Services</a></li>
+        <li><a href="<?= rootURL?>contact.php">Contact</a></li>
+        <!-- <li><a href="<?= rootURL?>signin.php">Signin</a></li> -->
         <li class = "navProfile">
           <div class="avatar">
             <img src="./images/avatar1.jpg" alt="avatar">
           </div>
           <ul>
-            <li><a href="dashboard.php">Dashboard</a></li>
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="<?= rootURL?>admin/index.php">Dashboard</a></li>
+            <li><a href="<?= rootURL?>logout.php">Logout</a></li>
           </ul>
         </li>
       </ul>
