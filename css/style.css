@@ -515,7 +515,7 @@ form {
 }
 
 .formSection small a {
-	color: var(--color-primary);
+	color: var(--color-violet);
 	margin-left: 1rem;
 	font-size:1rem;
 }

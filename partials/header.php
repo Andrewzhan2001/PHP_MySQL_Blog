@@ -28,8 +28,8 @@ require 'config/database.php';
         <li><a href="<?= rootURL?>about.php">About</a></li>
         <li><a href="<?= rootURL?>services.php">Services</a></li>
         <li><a href="<?= rootURL?>contact.php">Contact</a></li>
-        <!-- <li><a href="<?= rootURL?>signin.php">Signin</a></li> -->
-        <li class = "navProfile">
+        <li><a href="<?= rootURL?>signin.php">Signin</a></li>
+        <!-- <li class = "navProfile">
           <div class="avatar">
             <img src="./images/avatar1.jpg" alt="avatar">
           </div>
@@ -37,7 +37,7 @@ require 'config/database.php';
             <li><a href="<?= rootURL?>admin/index.php">Dashboard</a></li>
             <li><a href="<?= rootURL?>logout.php">Logout</a></li>
           </ul>
-        </li>
+        </li> -->
       </ul>
       <button id = "openNavBtn"><i class="uil uil-bars"></i></button>
       <button id = "closeNavBtn"><i class="uil uil-multiply"></i></button>
