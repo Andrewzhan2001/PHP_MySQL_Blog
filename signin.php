@@ -1,7 +1,6 @@
 <?php
   include 'partials/header.php';
 ?>
-
   <section class="formSection">
     <div class="container formSectionContainer">
       <h2>Sign In</h2>
