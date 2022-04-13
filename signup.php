@@ -25,7 +25,7 @@
           </p>
         </div>
       <?php endif ?>
-      <form action="<?=rootURL ?>signupLogic.php" enctype="multipart/form-data" method="POST">
+      <form action="signupLogic.php" enctype="multipart/form-data" method="POST">
         <input type="text" name="firstname" value="<?=$firstname?>" placeHolder="First Name">
         <input type="text" name="lastname" value="<?=$lastname?>" placeHolder="Last Name">
         <input type="text" name="username" value="<?=$username?>" placeHolder="Username">

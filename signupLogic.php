@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
     $_SESSION['signup'] = "Please add an avatar image";
   } else {
     //hash the password
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $hashedPassword = password_hash($createPassword, PASSWORD_DEFAULT);
 
     // check if username or email exists
     $userCheckQuery = "SELECT * FROM users WHERE username='$username' OR email='$email'";
