@@ -20,30 +20,32 @@
               <h5>Manage Posts</h5>
             </a>
           </li>
-          <li>
-            <a href="addUser.php">
-              <i class="uil uil-user-plus" ></i>
-              <h5>Add User</h5>
-            </a>
-          </li>
-          <li>
-            <a href="manageUsers.php" class="active">
-              <i class="uil uil-users-alt" ></i>
-              <h5>Manage Users</h5>
-            </a>
-          </li>
-          <li>
-            <a href="addCategory.php">
-              <i class="uil uil-edit" ></i>
-              <h5>Add Category</h5>
-            </a>
-          </li>
-          <li>
-            <a href="manageCategories.php" >
-              <i class="uil uil-list-ul" ></i>
-              <h5>Manage Categories</h5>
-            </a>
-          </li>
+          <?php if(isset($_SESSION['userIsAdmin'])) : ?>
+            <li>
+              <a href="addUser.php">
+                <i class="uil uil-user-plus" ></i>
+                <h5>Add User</h5>
+              </a>
+            </li>
+            <li>
+              <a href="manageUsers.php" class="active">
+                <i class="uil uil-users-alt" ></i>
+                <h5>Manage Users</h5>
+              </a>
+            </li>
+            <li>
+              <a href="addCategory.php">
+                <i class="uil uil-edit" ></i>
+                <h5>Add Category</h5>
+              </a>
+            </li>
+            <li>
+              <a href="manageCategories.php" >
+                <i class="uil uil-list-ul" ></i>
+                <h5>Manage Categories</h5>
+              </a>
+            </li>
+          <?php endif ?>
         </ul>
       </aside>
       <main>

@@ -1,5 +1,11 @@
 <?php
-require 'config/database.php';
+  require 'config/database.php';
+  if (isset($_SESSION['userId'])) {
+    $id = filter_var($_SESSION['userId'], FILTER_SANITIZE_NUMBER_INT);
+    $query = "SELECT avatar FROM users WHERE id='$id'";
+    $result = mysqli_query($connection, $query);
+    $image = mysqli_fetch_assoc($result)['avatar'];
+  }
 ?>
 
 <!DOCTYPE html>
@@ -28,16 +34,19 @@ require 'config/database.php';
         <li><a href="<?= rootURL?>about.php">About</a></li>
         <li><a href="<?= rootURL?>services.php">Services</a></li>
         <li><a href="<?= rootURL?>contact.php">Contact</a></li>
-        <li><a href="<?= rootURL?>signin.php">Signin</a></li>
-        <!-- <li class = "navProfile">
-          <div class="avatar">
-            <img src="./images/avatar1.jpg" alt="avatar">
-          </div>
-          <ul>
-            <li><a href="<?= rootURL?>admin/index.php">Dashboard</a></li>
-            <li><a href="<?= rootURL?>logout.php">Logout</a></li>
-          </ul>
-        </li> -->
+        <?php if(isset($_SESSION['userId'])) : ?>
+          <li class = "navProfile">
+            <div class="avatar">
+              <img src="<?= rootURL . 'images/users/' . $image ?>" alt="avatar">
+            </div>
+            <ul>
+              <li><a href="<?= rootURL?>admin/index.php">Dashboard</a></li>
+              <li><a href="<?= rootURL?>logout.php">Logout</a></li>
+            </ul>
+          </li>
+        <?php else : ?>
+          <li><a href="<?= rootURL?>signin.php">Signin</a></li>
+        <?php endif;?>
       </ul>
       <button id = "openNavBtn"><i class="uil uil-bars"></i></button>
       <button id = "closeNavBtn"><i class="uil uil-multiply"></i></button>
