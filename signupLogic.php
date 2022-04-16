@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
       header('location: ' . rootURL . 'signin.php');
       die();
     } else {
-      die(mysqli_errno($con));
+      die(mysqli_errno($connection));
     }
   }
 } else {
