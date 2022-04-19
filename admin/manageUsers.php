@@ -1,11 +1,59 @@
 <?php
   include 'partials/header.php';
+
+  // fetch users from database expect the current user logged in
+  $currentId = $_SESSION['userId'];
+  $query = "SELECT * FROM users where NOT id=$currentId";
+  $users = mysqli_query($connection, $query);
 ?>
 
   <section class="dashboard">
+    <!-- show if add user success -->
+    <?php if(isset($_SESSION['addUserSuccess'])) : ?> 
+      <div class="alertMessage success container">
+        <p>
+          <?= $_SESSION['addUserSuccess'];
+              unset($_SESSION['addUserSuccess']);
+          ?>
+        </p>
+      </div>
+    <?php elseif(isset($_SESSION['editUserSuccess'])) : ?>
+      <div class="alertMessage success container">
+        <p>
+          <?= $_SESSION['editUserSuccess'];
+              unset($_SESSION['editUserSuccess']);
+          ?>
+        </p>
+      </div>
+    <?php elseif(isset($_SESSION['editUser'])) : ?>
+      <div class="alertMessage error container">
+        <p>
+          <?= $_SESSION['editUser'];
+              unset($_SESSION['editUser']);
+          ?>
+        </p>
+      </div>
+    <?php elseif(isset($_SESSION['deleteUser'])) : ?>
+      <div class="alertMessage error container">
+        <p>
+          <?= $_SESSION['deleteUser'];
+              unset($_SESSION['deleteUser']);
+          ?>
+        </p>
+      </div>
+    <?php elseif(isset($_SESSION['deleteUserSuccess'])) : ?>
+      <div class="alertMessage success container">
+        <p>
+          <?= $_SESSION['deleteUserSuccess'];
+              unset($_SESSION['deleteUserSuccess']);
+          ?>
+        </p>
+      </div>
+    <?php endif; ?>
     <div class="container dashboardContainer">
       <button id="showSidebarBtn"  class="sidebarToggle"><i class="uil uil-angle-right-b"></i></button>
       <button id="hideSidebarBtn"  class="sidebarToggle"><i class="uil uil-angle-left-b"></i></button>
+      
       <aside>
         <ul>
           <li>
@@ -50,6 +98,7 @@
       </aside>
       <main>
         <h2>Manage Users</h2>
+        <?php if(mysqli_num_rows($users) > 0) :?>
         <table>
           <thead>
             <tr>
@@ -61,29 +110,24 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Username 1</td>
-              <td>achiever</td>
-              <td><a href="editUser.php" class="btn sm">Edit</a></td>
-              <td><a href="deleteCategory.php" class="btn sm danger">Delete</a></td>
-              <td>Yes</td>
-            </tr>
-            <tr>
-              <td>Username 2</td>
-              <td>achiever2</td>
-              <td><a href="editUser.php" class="btn sm">Edit</a></td>
-              <td><a href="deleteCategory.php" class="btn sm danger">Delete</a></td>
-              <td>Yes</td>
-            </tr>
-            <tr>
-              <td>Username 3</td>
-              <td>achiever3</td>
-              <td><a href="editUser.php" class="btn sm">Edit</a></td>
-              <td><a href="deleteCategory.php" class="btn sm danger">Delete</a></td>
-              <td>No</td>
-            </tr>
+            <?php while ($user = mysqli_fetch_assoc($users)) :?>
+              <tr>
+								<td><?= "{$user['firstname']}  {$user['lastname']}" ?></td>
+								<td><?= $user['username'] ?></td>
+								<td><a href="<?= rootURL ?>admin/editUser.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
+								<td><a href="<?= rootURL ?>admin/deleteUser.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
+								<td><?= $user['is_admin'] ? 'Yes' : 'No' ?></td>
+							</tr>
+            <?php endwhile ?>
           </tbody>
         </table>
+        <?php else :?>
+          <div class="alertMessage error">
+            <p>
+              <?="No other users found"?>
+            </p>
+          </div>
+        <?php endif?>
       </main>
     </div>
   </section>
