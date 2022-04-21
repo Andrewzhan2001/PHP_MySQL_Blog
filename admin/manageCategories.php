@@ -6,6 +6,39 @@
 ?>
 
   <section class="dashboard">
+    <?php if(isset($_SESSION['addCategorySuccess'])) : ?> 
+      <div class="alertMessage success container">
+        <p>
+          <?= $_SESSION['addCategorySuccess'];
+          unset($_SESSION['addCategorySuccess']);
+          ?>
+        </p>
+      </div>
+    <?php elseif(isset($_SESSION['editCategorySuccess'])) : ?> 
+      <div class="alertMessage success container">
+        <p>
+          <?= $_SESSION['editCategorySuccess'];
+          unset($_SESSION['editCategorySuccess']);
+          ?>
+        </p>
+      </div>
+    <?php elseif(isset($_SESSION['editCategory'])) : ?> 
+      <div class="alertMessage error container">
+        <p>
+          <?= $_SESSION['editCategory'];
+          unset($_SESSION['editCategory']);
+          ?>
+        </p>
+      </div>
+    <?php elseif(isset($_SESSION['deleteCategorySuccess'])) : ?> 
+      <div class="alertMessage success container">
+        <p>
+          <?= $_SESSION['deleteCategorySuccess'];
+          unset($_SESSION['deleteCategorySuccess']);
+          ?>
+        </p>
+      </div>
+    <?php endif ?>
     <div class="container dashboardContainer">
       <button id="showSidebarBtn"  class="sidebarToggle"><i class="uil uil-angle-right-b"></i></button>
       <button id="hideSidebarBtn"  class="sidebarToggle"><i class="uil uil-angle-left-b"></i></button>
