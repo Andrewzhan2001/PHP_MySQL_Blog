@@ -1,33 +1,45 @@
 <?php
   include 'partials/header.php';
+  $query = "SELECT * FROM categories";
+  $categories = mysqli_query($connection, $query);
+
+  $title = $_SESSION['addPostData']['title'] ?? null;
+  $body = $_SESSION['addPostData']['body'] ?? null;
+  $userIsAdmin = $_SESSION['userIsAdmin'] ?? null;
+
+  unset($_SESSION['addPostData'])
 ?>
 
   <section class="formSection">
     <div class="container formSectionContainer">
       <h2>Add Post</h2>
-      <div class="alertMessage error">
-        <p>This is a test error message</p>
-      </div>
-      <form action="" enctype="multipart/form-data">
-        <input type="text" placeHolder="Title">
-        <select>
-          <option value="1">Travel</option>
-          <option value="1">Art</option>
-          <option value="1">Science & Technology</option>
-          <option value="1">Travel</option>
-          <option value="1">Travel</option>
-          <option value="1">Travel</option>
-        </select>
-        <textarea rows="10" placeholder="Body"></textarea>
-        <div class="formControl inline">
-          <input type="checkbox" id="isFeatured" checked>
-          <label for="isFeatured">Featured</label>
+      <?php if (isset($_SESSION['addPost'])) : ?>
+        <div>
+          <p class="alertMessage error">
+            <?= $_SESSION['addPost'];
+            unset($_SESSION['addPost'])
+            ?></p>
         </div>
+      <?php endif; ?>
+      <form action="<?= rootURL?>admin/addPostLogic.php" enctype="multipart/form-data" method = "POST">
+        <input type="text" value = "<?= $title ?>" name="title" placeHolder="Title">
+        <select name="category">
+          <?php while ($category = mysqli_fetch_assoc($categories)) : ?>
+            <option value="<?= $category['id'] ?>"><?= $category['title'] ?></option>
+          <?php endwhile; ?>
+        </select>
+        <textarea rows="10" name="body" placeholder="Body"><?= $body ?></textarea>
+        <?php if (isset($userIsAdmin)) : ?>
+          <div class="formControl inline">
+            <input type="checkbox" id="isFeatured" value="1" name="isFeatured" checked>
+            <label for="isFeatured">Featured</label>
+          </div>
+        <?php endif ?>
         <div class="formControl">
           <label for="thumbnail">Add Thumbnail</label>
-          <input type="file" id="thumbnail">
+          <input type="file" name="thumbnail" id="thumbnail">
         </div>
-        <button type="submit" class="btn">Add Post</button>
+        <button type="submit" name="submit" class="btn">Add Post</button>
       </form>
     </div>
   </section>  

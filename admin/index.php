@@ -1,8 +1,37 @@
 <?php
   include 'partials/header.php';
+  // fetch user's posts from database
+  $userId = $_SESSION['userId'];
+  $query = "SELECT id, title, categoryId FROM posts WHERE authorID = $userId ORDER BY id DESC";
+  $posts = mysqli_query($connection,$query);
 ?>
 
   <section class="dashboard">
+		<?php if(isset($_SESSION['addPostSuccess'])) : ?> 
+      <div class="alertMessage success container">
+        <p>
+          <?= $_SESSION['addPostSuccess'];
+              unset($_SESSION['addPostSuccess']);
+          ?>
+        </p>
+      </div>
+    <?php elseif(isset($_SESSION['editPostSuccess'])) : ?> 
+      <div class="alertMessage success container">
+        <p>
+          <?= $_SESSION['editPostSuccess'];
+              unset($_SESSION['editPostSuccess']);
+          ?>
+        </p>
+      </div>
+    <?php elseif(isset($_SESSION['editPost'])) : ?> 
+      <div class="alertMessage error container">
+        <p>
+          <?= $_SESSION['editPost'];
+              unset($_SESSION['editPost']);
+          ?>
+        </p>
+      </div>
+		<?php endif; ?>
     <div class="container dashboardContainer">
       <button id="showSidebarBtn"  class="sidebarToggle"><i class="uil uil-angle-right-b"></i></button>
       <button id="hideSidebarBtn"  class="sidebarToggle"><i class="uil uil-angle-left-b"></i></button>
@@ -50,30 +79,41 @@
       </aside>
       <main>
         <h2>Manage Posts</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Category</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Title 1</td>
-              <td>Wild Life</td>
-              <td><a href="editPost.php" class="btn sm">Edit</a></td>
-              <td><a href="deleteCategory.php" class="btn sm danger">Delete</a></td>
-            </tr>
-            <tr>
-              <td>Title 1</td>
-              <td>Wild Life</td>
-              <td><a href="editPost.php" class="btn sm">Edit</a></td>
-              <td><a href="deleteCategory.php" class="btn sm danger">Delete</a></td>
-            </tr>
-          </tbody>
-        </table>
+        <?php if(mysqli_num_rows($posts) > 0) :?>
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+							<?php while ($post = mysqli_fetch_assoc($posts)) :?>
+								<!-- we want to get category from category id -->
+								<?php
+									$categoryId = $post['categoryId'];
+									$categoryQuery = "SELECT title FROM categories WHERE id = $categoryId";
+									$categoryResult = mysqli_query($connection,$categoryQuery);
+									$category = mysqli_fetch_assoc($categoryResult);
+								?>
+								<tr>
+									<td><?= $post['title'] ?></td>
+									<td><?= $category['title'] ?></td>
+									<td><a href="<?=rootURL ?>admin/editPost.php?id=<?=$post['id'] ?>" class="btn sm">Edit</a></td>
+									<td><a href="<?=rootURL ?>admin/deletePost.php?id=<?=$post['id'] ?>" class="btn sm danger">Delete</a></td>
+								</tr>
+							<?php endwhile ?>
+            </tbody>
+          </table>
+        <?php else :?>
+          <div class="alertMessage error">
+            <p>
+              <?="No posts found"?>
+            </p>
+          </div>
+        <?php endif?>
       </main>
     </div>
   </section>
