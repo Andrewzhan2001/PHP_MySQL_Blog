@@ -31,6 +31,22 @@
           ?>
         </p>
       </div>
+    <?php elseif(isset($_SESSION['deletePost'])) : ?> 
+      <div class="alertMessage error container">
+        <p>
+          <?= $_SESSION['deletePost'];
+              unset($_SESSION['deletePost']);
+          ?>
+        </p>
+      </div>
+    <?php elseif(isset($_SESSION['deletePostSuccess'])) : ?> 
+      <div class="alertMessage success container">
+        <p>
+          <?= $_SESSION['deletePostSuccess'];
+              unset($_SESSION['deletePostSuccess']);
+          ?>
+        </p>
+      </div>
 		<?php endif; ?>
     <div class="container dashboardContainer">
       <button id="showSidebarBtn"  class="sidebarToggle"><i class="uil uil-angle-right-b"></i></button>

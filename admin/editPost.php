@@ -28,7 +28,7 @@
         </select>
         <textarea rows="10" name="body" placeholder="Body"><?= $post['body'] ?></textarea>
         <div class="formControl inline">
-          <input type="checkbox" name="isFeatured id="isFeatured" value= "1" checked>
+          <input type="checkbox" name="isFeatured" id="isFeatured" value= "1" checked>
           <label for="isFeatured">Featured</label>
         </div>
         <div class="formControl">
