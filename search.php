@@ -1,24 +1,21 @@
 <?php
-  include 'partials/header.php';
-  $postsQuery = "SELECT * FROM posts ORDER BY dateTime DESC LIMIT 9";
-  $posts = mysqli_query($connection, $postsQuery)
+
+require 'partials/header.php';
+
+if (isset($_GET['search']) && isset($_GET['submit'])) {
+  $search = filter_var($_GET['search'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+  $query = "SELECT * FROM posts WHERE title LIKE '%$search%' ORDER BY dateTime DESC";
+  $posts = mysqli_query($connection, $query);
+} else {
+  header('location: ' . 'blog.php');
+  die();
+}
 ?>
 
-  <!-- for the search bar section -->
-  <section class="searchBar">
-    <form class="container searchBarContainer" action="search.php" method="GET">
-      <div>
-        <i class="uil uil-search"></i>
-        <input type="search" name="search" placeholder="Search">
-      </div>
-      <button type="submit" name="submit" class="btn">Search</button>
-    </form>
-  </section>
-
-  <!-- for the posts section -->
-  <section class="posts">
+<?php if (mysqli_num_rows($posts) > 0) : ?>
+  <section class="posts sectionExtraMargin">
     <div class="container postsContainer">
-       <?php while ($post = mysqli_fetch_assoc($posts)) : ?>
+        <?php while ($post = mysqli_fetch_assoc($posts)) : ?>
         <article class="post">
           <div class="postThumbnail">
             <div class="postThumbnailBorder">
@@ -58,19 +55,22 @@
       <?php endwhile; ?>
     </div>
   </section>
-  <section class="categoryButtons">
-    <div class="container categoryButtonsContainer">
-      <?php
-        $allCategoriesQuery = "SELECT * FROM categories";
-        $allCategories = mysqli_query($connection, $allCategoriesQuery);
-      ?>
-      <?php while ($category = mysqli_fetch_assoc($allCategories)) : ?>
-        <a href="categoryPosts.php?id=<?= $category['id'] ?>" class="categoryButton"><?= $category['title'] ?></a>
-      <?php endwhile; ?>
-    </div>
-  </section>
-  
+<?php else:?>
+  <div class="alertMessage error lg sectionExtraMargin">
+    <p>No posts found for this search</p>
+  </div>
+<?php endif;?>
+<section class="categoryButtons">
+  <div class="container categoryButtonsContainer">
+    <?php
+      $allCategoriesQuery = "SELECT * FROM categories";
+      $allCategories = mysqli_query($connection, $allCategoriesQuery);
+    ?>
+    <?php while ($category = mysqli_fetch_assoc($allCategories)) : ?>
+      <a href="categoryPosts.php?id=<?= $category['id'] ?>" class="categoryButton"><?= $category['title'] ?></a>
+    <?php endwhile; ?>
+  </div>
+</section>
 
-<?php 
-  include 'partials/footer.php';
-?>
+
+<?php require 'partials/footer.php';

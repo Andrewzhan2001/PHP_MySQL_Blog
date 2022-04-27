@@ -53,7 +53,6 @@ body {
 	color: var(--color-gray-200);
 	line-height: 1.6;
 	font-size: 0.9rem;
-	overflow-x: hidden;
 }
 
 .container {
@@ -220,12 +219,27 @@ ________________________________________________________________
 /* for the Post
 ________________________________________________________________
  */
+ .postThumbnailFeatured {
+	border-radius: var(--card-border-radius-5) 0;
+	margin-bottom: 1.6rem;
+	overflow: hidden;
+	background: var(--color-gradient);
+	padding: 10px;
+}
+
 .postThumbnail {
 	border-radius: var(--card-border-radius-5) 0;
 	margin-bottom: 1.6rem;
 	overflow: hidden;
 	background: var(--color-gradient);
 	padding: 10px;
+	width:330px;
+	height:330px;
+}
+
+.postThumbnail img {
+	width:310px;
+	height:310px;
 }
 
 .postThumbnailBorder {
