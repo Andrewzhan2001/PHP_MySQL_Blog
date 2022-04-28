@@ -22,5 +22,5 @@ if (isset($_POST['submit'])) {
 }
 
 
-header('location: ' . rootURL . 'admin/manageCategories.php');
+header('location: ' . 'manageCategories.php');
 die();

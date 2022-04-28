@@ -21,7 +21,7 @@
             ?></p>
         </div>
       <?php endif; ?>
-      <form action="<?= rootURL?>admin/addPostLogic.php" enctype="multipart/form-data" method = "POST">
+      <form action="addPostLogic.php" enctype="multipart/form-data" method = "POST">
         <input type="text" value = "<?= $title ?>" name="title" placeHolder="Title">
         <select name="category">
           <?php while ($category = mysqli_fetch_assoc($categories)) : ?>

@@ -10,7 +10,7 @@
       $category = mysqli_fetch_assoc($result);
     }
   } else {
-    header('location: ' . rootURL . 'admin/manageCategories.php');
+    header('location: ' . 'manageCategories.php');
     die();
   }
 ?>
@@ -18,7 +18,7 @@
   <section class="formSection">
     <div class="container formSectionContainer">
       <h2>Edit Category</h2>
-      <form action="<?=rootURL ?>admin/editCategoryLogic.php" method="POST">
+      <form action="editCategoryLogic.php" method="POST">
         <input type="hidden" name="id" value="<?= $category['id'] ?>" />
         <input type="text" name="title" value="<?= $category['title'] ?>" placeHolder="Title">
         <textarea rows="4" name="description" placeholder="Description"><?= $category['description'] ?></textarea>

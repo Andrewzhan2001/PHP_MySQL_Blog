@@ -34,7 +34,7 @@
           // log user in
           $_SESSION['username'] = $userRecord['username'];
   
-          header('location: ' . rootURL . 'admin/');
+          header('location: ' . 'admin/');
         } else {
           // if no user found
           $_SESSION['signin'] = "Password doesn't match record. Please try again.";
@@ -47,11 +47,11 @@
     // if there are any problems, redirect to signin page with login data
     if (isset($_SESSION['signin'])) {
       $_SESSION['signinData'] = $_POST;
-      header('location: ' . rootURL . 'signin.php');
+      header('location: ' . 'signin.php');
       die();
     }
   } else {
     // if button not pressed
-    header('location: ' . rootURL . 'signin.php');
+    header('location: ' . 'signin.php');
     die();
   }

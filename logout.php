@@ -2,5 +2,5 @@
 
 // destroy all sessions & redirect use to home page
 session_destroy();
-header('location: ' . rootURL);
+header('location: ' . 'index.php');
 die();

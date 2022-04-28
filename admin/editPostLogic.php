@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
   }
 
   if (isset($_SESSION['editPost'])) {
-    header('location: ' . rootURL . 'admin/');
+    header('location: ' . 'admin/');
     die();
   } else {
     // Set is_featured for all posts to 0 if is_featured for this post is 1
@@ -69,5 +69,5 @@ if (isset($_POST['submit'])) {
   } 
 }
 
-header('location: ' . rootURL . 'admin/');
+header('location: ' . 'admin/');
 die();

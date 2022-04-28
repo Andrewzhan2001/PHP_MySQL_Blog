@@ -114,8 +114,8 @@
               <tr>
 								<td><?= "{$user['firstname']}  {$user['lastname']}" ?></td>
 								<td><?= $user['username'] ?></td>
-								<td><a href="<?= rootURL ?>admin/editUser.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
-								<td><a href="<?= rootURL ?>admin/deleteUser.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
+								<td><a href="editUser.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
+								<td><a href="deleteUser.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
 								<td><?= $user['is_admin'] ? 'Yes' : 'No' ?></td>
 							</tr>
             <?php endwhile ?>

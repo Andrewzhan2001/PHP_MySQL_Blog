@@ -117,8 +117,8 @@
 								<tr>
 									<td><?= $post['title'] ?></td>
 									<td><?= $category['title'] ?></td>
-									<td><a href="<?=rootURL ?>admin/editPost.php?id=<?=$post['id'] ?>" class="btn sm">Edit</a></td>
-									<td><a href="<?=rootURL ?>admin/deletePost.php?id=<?=$post['id'] ?>" class="btn sm danger">Delete</a></td>
+									<td><a href="editPost.php?id=<?=$post['id'] ?>" class="btn sm">Edit</a></td>
+									<td><a href="deletePost.php?id=<?=$post['id'] ?>" class="btn sm danger">Delete</a></td>
 								</tr>
 							<?php endwhile ?>
             </tbody>

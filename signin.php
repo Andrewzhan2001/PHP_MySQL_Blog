@@ -24,7 +24,7 @@
 					</p>
 				</div>
 			<?php endif; ?>
-      <form action="<?=rootURL?>signinLogic.php" method="POST">
+      <form action="signinLogic.php" method="POST">
         <input type="text" name="usernameEmail" value="<?=$usernameEmail?>" placeHolder="Username or Email">
         <input type="password" name="password" value="<?=$password?>"  placeHolder="Password">
         <button type="submit" name="submit" class="btn">Sign In</button>

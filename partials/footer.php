@@ -52,7 +52,7 @@
       <small>Copyright &copy; 2022 Tianyi </small>
     </div>
   </footer>
-  <script src="<?=rootURL?>js/main.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
 

@@ -26,5 +26,5 @@ if (isset($_GET['id'])) {
   }
 
 }
-header('location: ' . rootURL . 'admin/manageCategories.php');
+header('location: ' . 'manageCategories.php');
 die();

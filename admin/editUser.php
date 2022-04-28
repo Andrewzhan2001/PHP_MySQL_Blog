@@ -7,7 +7,7 @@
     $result = mysqli_query($connection, $query);
     $user = mysqli_fetch_assoc($result);
   } else {
-    header('location: ' . rootURL . 'admin/manageUsers.php');
+    header('location: ' . 'manageUsers.php');
     die();
   }
 ?>
@@ -15,7 +15,7 @@
   <section class="formSection">
     <div class="container formSectionContainer">
       <h2>Edit User</h2>
-      <form action="<?=rootURL?>admin/editUserLogic.php" method="POST">
+      <form action="editUserLogic.php" method="POST">
         <input type="hidden" value="<?=$user['id']?>" name="id">
         <input type="text" value="<?=$user['firstname']?>" name="firstname" placeHolder="First Name">
         <input type="text" value="<?=$user['lastname']?>" name="lastname" placeHolder="Last Name">

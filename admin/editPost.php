@@ -9,7 +9,7 @@
     $result = mysqli_query($connection, $query);
     $post = mysqli_fetch_assoc($result);
   } else {
-    header('location:' . rootURL . 'admin/');
+    header('location:' . 'admin/');
     die();
   }
 ?>
@@ -17,7 +17,7 @@
   <section class="formSection">
     <div class="container formSectionContainer">
       <h2>Edit Post</h2>
-      <form action="<?=rootURL?>admin/editPostLogic.php" enctype="multipart/form-data" method="POST">
+      <form action="editPostLogic.php" enctype="multipart/form-data" method="POST">
         <input type="hidden" name="id" value="<?= $post['id'] ?>" >
         <input type="hidden" name="previousThumbnail" value="<?= $post['thumbnail'] ?>" >
         <input type="text" name="title" value="<?= $post['title'] ?>" placeHolder="Title">

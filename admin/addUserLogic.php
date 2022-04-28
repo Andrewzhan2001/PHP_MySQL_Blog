@@ -59,7 +59,7 @@
     if (isset($_SESSION['addUser'])) {
       // pass form data back to signup page
       $_SESSION['addUserData'] = $_POST;
-      header('location: ' . rootURL . 'admin/addUser.php');
+      header('location: ' . 'addUser.php');
       die();
     } else {
       // if everything works well
@@ -71,7 +71,7 @@
       if (!mysqli_errno($connection)) {
         // redirect to login page with success message
         $_SESSION['addUserSuccess'] = "New user $firstname $lastname has been added successfully";
-        header('location: ' . rootURL . 'admin/manageUsers.php');
+        header('location: ' . 'manageUsers.php');
         die();
       } else {
         die(mysqli_errno($connection));
@@ -79,6 +79,6 @@
     }
   } else {
     // if not clicked button(manually type the url to the page), go back to signup page
-    header('location: ' . rootURL . 'admin/addUser.php');
+    header('location: ' . 'addUser.php');
     die();
   }

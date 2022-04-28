@@ -19,5 +19,5 @@ if (isset($_POST['submit'])) {
   }
 }
 
-header('location:' . rootURL . 'admin/manageUsers.php');
+header('location:' . 'manageUsers.php');
 die();

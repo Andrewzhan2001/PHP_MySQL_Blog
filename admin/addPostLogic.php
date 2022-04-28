@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
   }
   if (isset($_SESSION['addPost'])) {
     $_SESSION['addPostData'] = $_POST;
-    header('location: ' . rootURL . 'admin/addPost.php');
+    header('location: ' . 'addPost.php');
     die();
   } else {
     //we should have only one featured post in the database
@@ -56,10 +56,10 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($connection, $query);
     if (!mysqli_errno($connection)) {
       $_SESSION['addPostSuccess'] = "New post $title added successfully";
-      header('location: ' . rootURL . 'admin/');
+      header('location: ' . 'admin/');
       die();
     } 
   }
 }
-header('location: '. rootURL. 'admin/addPost.php');
+header('location: '. 'addPost.php');
 die();

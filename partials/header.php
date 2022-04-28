@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PHP and MYSQL Blog Website</title>
 <!--  style sheet -->
-  <link rel="stylesheet" href="<?= rootURL?>css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 <!-- iconsount cdn(content delivery network) -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 <!-- google fonts -->
@@ -28,24 +28,24 @@
   <!-- for the navigation bar -->
   <nav>
     <div class="container navContainer">
-      <a href="<?= rootURL?>" class="navLogo">ANDREW</a>
+      <a href="index.php" class="navLogo">ANDREW</a>
       <ul class="navItems">
-        <li><a href="<?= rootURL?>blog.php">Blog</a></li>
-        <li><a href="<?= rootURL?>about.php">About</a></li>
-        <li><a href="<?= rootURL?>services.php">Services</a></li>
-        <li><a href="<?= rootURL?>contact.php">Contact</a></li>
+        <li><a href="blog.php">Blog</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="services.php">Services</a></li>
+        <li><a href="contact.php">Contact</a></li>
         <?php if(isset($_SESSION['userId'])) : ?>
           <li class = "navProfile">
             <div class="avatar">
-              <img src="<?= rootURL . 'images/users/' . $image ?>" alt="avatar">
+              <img src="<?= 'images/users/' . $image ?>" alt="avatar">
             </div>
             <ul>
-              <li><a href="<?= rootURL?>admin/index.php">Dashboard</a></li>
-              <li><a href="<?= rootURL?>logout.php">Logout</a></li>
+              <li><a href="admin/index.php">Dashboard</a></li>
+              <li><a href="logout.php">Logout</a></li>
             </ul>
           </li>
         <?php else : ?>
-          <li><a href="<?= rootURL?>signin.php">Signin</a></li>
+          <li><a href="signin.php">Signin</a></li>
         <?php endif;?>
       </ul>
       <button id = "openNavBtn"><i class="uil uil-bars"></i></button>

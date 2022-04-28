@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
   if (isset($_SESSION['signup'])) {
     // pass form data back to signup page
     $_SESSION['signupData'] = $_POST;
-    header('location: ' . rootURL . 'signup.php');
+    header('location: ' . 'signup.php');
     die();
   } else {
     // if everything works well
@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
     if (!mysqli_errno($connection)) {
       // redirect to login page with success message
       $_SESSION['signupSuccess'] = 'Registration successful. Please log in your account';
-      header('location: ' . rootURL . 'signin.php');
+      header('location: ' . 'signin.php');
       die();
     } else {
       die(mysqli_errno($connection));
@@ -88,6 +88,6 @@ if (isset($_POST['submit'])) {
   }
 } else {
   // if not clicked button(manually type the url to the page), go back to signup page
-  header('location: ' . rootURL . 'signup.php');
+  header('location: ' . 'signup.php');
   die();
 }

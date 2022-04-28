@@ -18,7 +18,7 @@
           </p>
         </div>
       <?php endif ?>
-      <form action="<?= rootURL ?>admin/addCategoryLogic.php" method="POST">
+      <form action="addCategoryLogic.php" method="POST">
         <input type="text" name="title" value="<?= $title ?>"  placeHolder="Title">
         <textarea rows="4" name="description" placeholder="Description"><?= $description ?></textarea>
         <button type="submit" name="submit" class="btn">Add Category</button>

@@ -33,5 +33,5 @@ if (isset($_GET['id'])) {
   }
 }
 
-header('location: ' . rootURL . 'admin/');
+header('location: ' . 'admin/');
 die();

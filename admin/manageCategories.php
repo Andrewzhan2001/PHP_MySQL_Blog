@@ -99,8 +99,8 @@
             <?php while($category = mysqli_fetch_assoc($categories)) :?>
               <tr>
                 <td><?= $category['title'] ?></td>
-								<td><a href="<?= rootURL . 'admin/editCategory.php?id=' ?><?= $category['id'] ?>" class="btn sm">Edit</a></td>
-								<td><a href="<?= rootURL . 'admin/deleteCategory.php?id=' ?><?= $category['id'] ?>" class="btn sm danger">Delete</a></td>
+								<td><a href="editCategory.php?id=' ?><?= $category['id'] ?>" class="btn sm">Edit</a></td>
+								<td><a href="deleteCategory.php?id=' ?><?= $category['id'] ?>" class="btn sm danger">Delete</a></td>
               </tr>
             <?php endwhile ?>
           </tbody>
