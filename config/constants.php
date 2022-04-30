@@ -1,7 +1,6 @@
 <?php
-define('rootURL', 'http://localhost/blog/blog_frontend_php/');
-define('dbHost', 'localhost');
-define('dbUser', 'Andrew');
-define('dbPass', '1234');
-define('dbName', 'blog');
+define('dbHost', getenv("DB_HOST"));
+define('dbUser', getenv("DB_USERNAME"));
+define('dbPass', getenv("DB_PASSWORD"));
+define('dbName', getenv("DB_DATABASE"));
 session_start();
