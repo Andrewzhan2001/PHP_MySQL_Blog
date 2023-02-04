@@ -34,7 +34,7 @@
           // log user in
           $_SESSION['username'] = $userRecord['username'];
   
-          header('location: ' . 'admin/');
+          header('location: ' . 'index.php');
         } else {
           // if no user found
           $_SESSION['signin'] = "Password doesn't match record. Please try again.";

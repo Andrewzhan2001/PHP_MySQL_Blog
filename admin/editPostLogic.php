@@ -48,11 +48,11 @@ if (isset($_POST['submit'])) {
   }
 
   if (isset($_SESSION['editPost'])) {
-    header('location: ' . 'admin/');
+    header('location: ' . 'index.php');
     die();
   } else {
     // Set is_featured for all posts to 0 if is_featured for this post is 1
-    if ($is_featured == 1) {
+    if ($isFeatured == 1) {
       $zeroFeaturedQuery = "UPDATE posts SET isFeatured=0";
       $zeroFeaturedResult = mysqli_query($connection, $zeroFeaturedQuery);
     }
