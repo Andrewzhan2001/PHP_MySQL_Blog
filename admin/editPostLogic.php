@@ -69,5 +69,5 @@ if (isset($_POST['submit'])) {
   } 
 }
 
-header('location: ' . 'admin/');
+header('location: ' . 'index.php');
 die();

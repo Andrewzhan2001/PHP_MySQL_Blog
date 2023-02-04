@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($connection, $query);
     if (!mysqli_errno($connection)) {
       $_SESSION['addPostSuccess'] = "New post $title added successfully";
-      header('location: ' . 'admin/');
+      header('location: ' . 'index.php');
       die();
     } 
   }

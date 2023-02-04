@@ -9,7 +9,7 @@
     $result = mysqli_query($connection, $query);
     $post = mysqli_fetch_assoc($result);
   } else {
-    header('location:' . 'admin/');
+    header('location:' . 'index.php');
     die();
   }
 ?>
