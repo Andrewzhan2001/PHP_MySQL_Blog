@@ -1,5 +1,6 @@
 <h1 align="center">PHP & MYSQL Blog App</h1>
 
+### Important comment: As the Azure MySQL server is not free, this project may not be working someday in the future
 ---
 <p align="center"> This is a fully functioning CRUD Blog Application with an Administrator Panel/Dashboard using PHP and MySQL.
     <br> 
