@@ -6,7 +6,7 @@
     <br> 
 </p>
 
-### Please acces the website using this [Link](https://andrewblog.azurewebsites.net)
+### Please acces the website using this [Link](https://blogphp.azurewebsites.net/index.php)
 
 ## 🚀 Demo
 
